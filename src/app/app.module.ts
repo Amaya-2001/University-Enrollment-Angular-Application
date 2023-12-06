@@ -1,20 +1,24 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UserSignupComponent } from './user-signup/user-signup.component';
+import { HomePageComponent } from './home-page/home-page.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { UserSignupComponent } from './user-signup/user-signup.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserSignupComponent,
-    UserLoginComponent
+    HomePageComponent,
+    UserLoginComponent,
+    UserSignupComponent
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration()
