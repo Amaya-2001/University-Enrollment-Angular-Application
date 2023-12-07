@@ -1,25 +1,35 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-user-signup',
   templateUrl: './user-signup.component.html',
-  styleUrl: './user-signup.component.css'
+  styleUrls: ['./user-signup.component.css']
 })
 export class UserSignupComponent implements OnInit {
 
-  constructor(
+  public signUpForm!: FormGroup;
 
-    private router: Router
-  ) {
+  constructor(private fb: FormBuilder, private auth: AuthService) { }
 
-
-  }
   ngOnInit(): void {
-
+    this.signUpForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
   }
-  onLogin() {
-    this.router.navigate(['login']);
-  }
 
+  onSignUp() {
+    console.log(this.signUpForm.value);
+    this.auth.signup(this.signUpForm.value).subscribe({
+      next: (res => {
+        alert(res.message);
+      }),
+      error: (err => {
+        alert(err?.error.message);
+      })
+    });
+  }
 }
