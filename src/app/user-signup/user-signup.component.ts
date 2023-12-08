@@ -26,6 +26,7 @@ export class UserSignupComponent implements OnInit {
     this.auth.signup(this.signUpForm.value).subscribe({
       next: (res => {
         alert(res.message);
+        this.signUpForm.reset();
       }),
       error: (err => {
         alert(err?.error.message);
