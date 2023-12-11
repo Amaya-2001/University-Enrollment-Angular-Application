@@ -8,6 +8,8 @@ import { UserSignupComponent } from './user-signup/user-signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgToastModule } from 'ng-angular-popup';
+import { StudentComponent } from './components/student/student.component';
+
 
 @NgModule({
   declarations: [
@@ -15,6 +17,7 @@ import { NgToastModule } from 'ng-angular-popup';
     HomePageComponent,
     UserLoginComponent,
     UserSignupComponent,
+    StudentComponent,
 
   ],
   imports: [
@@ -27,6 +30,7 @@ import { NgToastModule } from 'ng-angular-popup';
   ],
   providers: [
     provideClientHydration()
+
   ],
   bootstrap: [AppComponent]
 })
