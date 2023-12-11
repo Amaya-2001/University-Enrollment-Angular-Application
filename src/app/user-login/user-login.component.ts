@@ -2,15 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 @Component({
   selector: 'app-user-login',
   templateUrl: './user-login.component.html',
-  styleUrl: './user-login.component.css'
+  styleUrls: ['./user-login.component.css']
 })
 export class UserLoginComponent implements OnInit {
 
   loginForm!: FormGroup;
-  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) {
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router, private toast: NgToastService) {
 
   }
   ngOnInit(): void {
@@ -24,13 +25,14 @@ export class UserLoginComponent implements OnInit {
 
     this.auth.login(this.loginForm.value).subscribe({
       next: (res) => {
-        alert(res.message)
+
+        this.toast.success({ detail: "Success!", summary: res.message, duration: 5000 })
         this.loginForm.reset();
         this.router.navigate([''])
       },
       error: (err) => {
 
-        alert(err?.error.message)
+        this.toast.error({ detail: "Error!", summary: "Something Went Wrong!", duration: 5000 })
       }
     })
   }
