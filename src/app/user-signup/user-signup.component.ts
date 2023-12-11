@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-user-signup',
@@ -12,7 +13,7 @@ export class UserSignupComponent implements OnInit {
 
   public signUpForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router) { }
+  constructor(private fb: FormBuilder, private auth: AuthService, private router: Router, private toast: NgToastService) { }
 
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
@@ -23,15 +24,15 @@ export class UserSignupComponent implements OnInit {
   }
 
   onSignUp() {
-    console.log(this.signUpForm.value);
+
     this.auth.signup(this.signUpForm.value).subscribe({
       next: (res => {
-        alert(res.message);
+        this.toast.success({ detail: "Registration Success!", summary: res.message, duration: 5000 })
         this.signUpForm.reset();
         this.router.navigate(['login']);
       }),
       error: (err => {
-        alert(err?.error.message);
+        this.toast.error({ detail: "Error!", summary: "Something Went Wrong!", duration: 5000 })
       })
     });
   }
