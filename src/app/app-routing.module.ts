@@ -5,13 +5,15 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { authGuard } from '../app/guards/auth.guard';
 import { StudentComponent } from './components/student/student.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomePageComponent, },
+  { path: 'home', component: HomePageComponent },
   { path: '', component: HomePageComponent },
   { path: 'signup', component: UserSignupComponent },
   { path: 'login', component: UserLoginComponent },
-  { path: 'student', component: StudentComponent, canActivate: [authGuard] }
+  { path: 'student', component: StudentComponent, canActivate: [authGuard] },
+  { path: 'dashboard', component: DashboardComponent }
 ];
 
 @NgModule({

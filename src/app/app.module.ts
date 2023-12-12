@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgToastModule } from 'ng-angular-popup';
 import { StudentComponent } from './components/student/student.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { StudentComponent } from './components/student/student.component';
     UserLoginComponent,
     UserSignupComponent,
     StudentComponent,
+    DashboardComponent,
 
   ],
   imports: [
