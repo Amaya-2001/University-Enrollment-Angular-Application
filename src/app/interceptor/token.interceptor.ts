@@ -1,10 +1,39 @@
-import { HttpInterceptorFn } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import {
+  HttpRequest,
+  HttpHandler,
+  HttpEvent,
+  HttpInterceptor,
+  HttpErrorResponse
+} from '@angular/common/http';
+import { Observable, catchError, throwError } from 'rxjs';
 import { AuthService } from '../services/auth.service';
-import { inject } from '@angular/core';
+import { NgToastService } from 'ng-angular-popup';
+import { Router } from '@angular/router';
 
-export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
-  const authService = inject(AuthService);
-  const myToken = authService.getToken();
+@Injectable()
+export class TokenInterceptor implements HttpInterceptor {
 
-  return next(req);
-};
+  constructor(private auth: AuthService, private toast: NgToastService, private router: Router) { }
+
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    const myToken = this.auth.getToken();
+    if (myToken) {
+      request = request.clone({
+        setHeaders: { Authorization: `Bearer ${myToken}` }
+      })
+    }
+    return next.handle(request).pipe(
+      catchError((err: any) => {
+        if (err instanceof HttpErrorResponse) {
+          if (err.status === 401) {
+            this.toast.warning({ detail: "Warning", summary: "Token is expired, Login again" });
+            this.router.navigate(['login'])
+          }
+
+        }
+        return throwError(() => new Error("Some other error occured"))
+      })
+    );
+  }
+}

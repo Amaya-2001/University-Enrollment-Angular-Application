@@ -6,10 +6,11 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { UserSignupComponent } from './user-signup/user-signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgToastModule } from 'ng-angular-popup';
 import { StudentComponent } from './components/student/student.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { TokenInterceptor } from './interceptor/token.interceptor';
 
 
 @NgModule({
@@ -31,7 +32,11 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    {
+      provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true
+    }
+
 
   ],
   bootstrap: [AppComponent]
