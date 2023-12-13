@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../../services/auth.service';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 
 @Component({
-  selector: 'app-user-signup',
-  templateUrl: './user-signup.component.html',
-  styleUrls: ['./user-signup.component.css']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrl: './signup.component.css'
 })
-export class UserSignupComponent implements OnInit {
+export class SignupComponent implements OnInit {
 
   public signUpForm!: FormGroup;
 
@@ -29,7 +29,7 @@ export class UserSignupComponent implements OnInit {
       next: (res => {
         this.toast.success({ detail: "Registration Success!", summary: res.message, duration: 5000 })
         this.signUpForm.reset();
-        this.router.navigate(['login']);
+        this.router.navigate(['/auth/login']);
       }),
       error: (err => {
         this.toast.error({ detail: "Error!", summary: "Something Went Wrong!", duration: 5000 })
@@ -37,3 +37,5 @@ export class UserSignupComponent implements OnInit {
     });
   }
 }
+
+
