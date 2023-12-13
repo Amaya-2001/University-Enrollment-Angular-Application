@@ -10,7 +10,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
-
 @NgModule({
   declarations: [
     AuthComponent,
@@ -23,7 +22,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
     AuthRoutingModule,
     NgToastModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+
   ]
 })
 export class AuthModule { }

@@ -29,10 +29,16 @@ export class AuthService {
   }
 
   getToken() {
-    return localStorage.getItem('token')
+    if (localStorage) {
+      return localStorage.getItem('token')
+    }
+    return null;
   }
-  isLoggedIn(): boolean {
 
-    return !!localStorage.getItem('token')
+  isLoggedIn(): boolean {
+    if (typeof window !== 'undefined') {
+      return !!localStorage.getItem('token')
+    }
+    return false;
   }
 }

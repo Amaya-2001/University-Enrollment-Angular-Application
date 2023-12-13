@@ -12,8 +12,8 @@ export const authGuard: CanActivateFn = (
   const toast = inject(NgToastService);
 
   if (!authService.isLoggedIn()) {
+    router.navigate(['/auth/login'], { queryParams: { returnUrl: state.url } });
     toast.error({ detail: "Error", summary: "Please Login First!" });
-    router.navigate(['login'], { queryParams: { returnUrl: state.url } });
     return false;
   }
   return true;
