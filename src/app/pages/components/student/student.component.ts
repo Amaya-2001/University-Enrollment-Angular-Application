@@ -21,6 +21,18 @@ export class StudentComponent implements OnInit {
   studentEditDialog() {
     this.dialog.open(StudentEditDialog);
   }
+
+  addStudent() {
+    this.dialog.open(StudentAddDialog);
+  }
+  viewDeatils() {
+    this.dialog.open(StudentDetailsDialog);
+
+  }
+  studentDelete() {
+    this.dialog.open(StudentDeleteDialog);
+
+  }
 }
 
 @Component({
@@ -28,8 +40,37 @@ export class StudentComponent implements OnInit {
   templateUrl: 'studentEditModal.component.html',
   styleUrl: './student.component.css',
   standalone: true,
-  imports: [MatDialogTitle, MatDialogContent, MatDialogActions, MatDialogClose, MatButtonModule],
+  imports: [],
 })
 export class StudentEditDialog { }
 
+
+@Component({
+  selector: 'studentAddModel.component',
+  templateUrl: 'studentAddModel.component.html',
+  styleUrl: './student.component.css',
+  standalone: true,
+  imports: [],
+})
+export class StudentAddDialog { }
+
+
+@Component({
+  selector: 'studentDetailsModel.component',
+  templateUrl: 'studentDetailsModel.component.html',
+  styleUrl: './student.component.css',
+  standalone: true,
+  imports: [],
+})
+export class StudentDetailsDialog { }
+
+
+@Component({
+  selector: 'studentDeleteModal.component',
+  templateUrl: 'studentDeleteModal.component.html',
+  styleUrl: './student.component.css',
+  standalone: true,
+  imports: [],
+})
+export class StudentDeleteDialog { }
 
