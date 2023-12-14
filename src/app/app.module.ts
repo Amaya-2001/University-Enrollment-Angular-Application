@@ -6,6 +6,7 @@ import { TokenInterceptor } from './interceptor/token.interceptor';
 import { HomeComponent } from './components/home/home.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgToastModule } from 'ng-angular-popup';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -20,7 +21,8 @@ import { NgToastModule } from 'ng-angular-popup';
     BrowserModule,
     AppRoutingModule,
     NgToastModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
 
 
   ],

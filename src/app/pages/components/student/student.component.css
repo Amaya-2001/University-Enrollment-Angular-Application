@@ -1,0 +1,18 @@
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 75%;
+
+
+}
+
+.editmodal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+
+
+}
