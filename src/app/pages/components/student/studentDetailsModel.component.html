@@ -3,23 +3,29 @@
     <h1>Student Details</h1>
 
 
-    <div>
-        <form>
-            <div class="form-group">
+    <div *ngIf="studentDetails">
 
-                <input type="text" class="form-control" placeholder="First Name">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
 
-                <input type="text" class="form-control" placeholder="Last Name">
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of studentDetails">
+                    <th scope="row">{{studentDetails?.studentId}}</th>
+                    <td>{{ studentDetails?.firstName }}</td>
+                    <td>{{ studentDetails?.lastName }}</td>
+                    <td>{{ studentDetails?.email }}</td>
 
-                <input type="text" class="form-control" placeholder="Course">
+                </tr>
 
-                <input type="date" class="form-control" placeholder="Enrollment Date">
-            </div>
-            <div class="btnEdit">
-                <button type="button" class=" btn  btn-success">Save Changes</button>
-            </div>
-
-        </form>
+            </tbody>
+        </table>
 
     </div>
 

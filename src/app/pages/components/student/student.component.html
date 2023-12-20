@@ -1,42 +1,45 @@
-<h1>Student</h1>
-<div class="add-student">
+<app-navbar></app-navbar>
+<div class="student-page">
+    <h1>Student</h1>
+    <div class="add-student">
 
-    <div class="card" style="width: 18rem">
-        <img src="../../../../assets/graduate-student.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-            <div class="add-btn">
+        <div class="card" style="width: 18rem">
+            <img src="../../../../assets/graduate-student.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <div class="add-btn">
 
-                <a class="btn btn-dark" (click)="addStudent()">Add Student</a>
+                    <a class="btn btn-dark" (click)="addStudent()">Add Student</a>
+                </div>
             </div>
+
         </div>
+    </div>
+    <div class="table-container">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Student ID</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let student of students">
+                    <th>{{student.studentId}}</th>
+                    <td>{{student.firstName}}</td>
+                    <td>{{student.lastName}}</td>
+                    <td><button class="btn btn-success">Edit</button>
+                    </td>
+                    <td><button type="button" class="btn btn-info" (click)="viewDeatils()">Details</button></td>
+                    <td><button type="button" class="btn btn-danger">Delete</button></td>
+                </tr>
+
+
+            </tbody>
+        </table>
 
     </div>
-</div>
-<div class="table-container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Student ID</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th>1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td><button class="btn btn-success" (click)="studentEditDialog()">Edit</button>
-                </td>
-                <!-- <td><button type="button" class="btn btn-info" (click)="viewDeatils()">Details</button></td>
-                <td><button type="button" class="btn btn-danger" (click)="studentDelete()">Delete</button></td> -->
-            </tr>
-
-
-        </tbody>
-    </table>
-
 </div>

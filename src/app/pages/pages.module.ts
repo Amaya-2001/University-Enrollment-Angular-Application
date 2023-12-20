@@ -7,7 +7,9 @@ import { StudentComponent } from './components/student/student.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgToastModule } from 'ng-angular-popup';
-import { CreateStudentComponent } from './components/create-student/create-student.component';
+import { CourseComponent } from './components/course/course.component';
+import { EnrollmentComponent } from './components/enrollment/enrollment.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
@@ -15,7 +17,10 @@ import { CreateStudentComponent } from './components/create-student/create-stude
   declarations: [
     PagesComponent,
     StudentComponent,
-    CreateStudentComponent,
+    CourseComponent,
+    EnrollmentComponent,
+    NavbarComponent,
+
 
 
   ],

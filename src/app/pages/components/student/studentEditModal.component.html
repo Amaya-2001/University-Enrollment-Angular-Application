@@ -4,19 +4,20 @@
 
 
     <div>
-        <form>
+        <form [formGroup]="editForm" (ngSubmit)="editStudent()">
             <div class="form-group">
 
-                <input type="text" class="form-control" placeholder="First Name">
+                <input type="text" class="form-control" placeholder="Student ID" formControlName="StudentId">
+                <input type="text" class="form-control" placeholder="First Name" formControlName="FirstName">
 
-                <input type="text" class="form-control" placeholder="Last Name">
+                <input type="text" class="form-control" placeholder="Last Name" formControlName="LastName">
 
-                <input type="text" class="form-control" placeholder="Course">
+                <input type="email" class="form-control" placeholder="Email" formControlName="email">
 
-                <input type="date" class="form-control" placeholder="Enrollment Date">
+
             </div>
             <div class="btnEdit">
-                <button type="button" class=" btn  btn-success">Save Changes</button>
+                <button type="submit" class=" btn  btn-success">Add</button>
             </div>
 
         </form>
@@ -24,5 +25,6 @@
     </div>
 
 
-
 </div>
+
+<!-- [formGroup]="editForm" (ngSubmit)="editStudent(studentId)" -->

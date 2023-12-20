@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+
+
+<div class="course-page">
+    <div class="add-card">
+        <div class="card" style="width: 18rem;">
+            <img src="../../../../assets/course.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <div class="container">
+
+
+                    <form action="/action_page.php">
+                        <label for="fname">Course ID</label>
+                        <input type="text" id="fname" name="firstname" placeholder="Course ID">
+
+                        <label for="lname">Title</label>
+                        <input type="text" id="lname" name="lastname" placeholder="Title">
+
+                        <label for="email">Credits</label>
+                        <input type="text" id="lname" name="lastname" placeholder="Credits">
+
+
+
+
+                    </form>
+                </div>
+                <button type="button" class="btn btn-primary" (click)="addCourse()">Add Course</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Course ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Credits</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td><button class="btn btn-success">Edit</button>
+                </td>
+                <td><button type="button" class="btn btn-info">Details</button></td>
+                <td><button type="button" class="btn btn-danger">Delete</button></td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

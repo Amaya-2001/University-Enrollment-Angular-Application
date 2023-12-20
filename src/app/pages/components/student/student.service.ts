@@ -19,8 +19,8 @@ export class StudentService {
     return this.http.post<any>(`${this.baseUrl}create`, studentObj)
 
   }
-  editStudent(studentId: string) {
-    return this.http.post<any>(`${this.baseUrl}edit`, studentId)
+  editStudent(StudentId: string) {
+    return this.http.post<any>(`${this.baseUrl}edit`, StudentId)
   }
 
   deleteStudent(studentId: string) {
@@ -28,6 +28,6 @@ export class StudentService {
   }
 
   viewStudentDetails() {
-    return this.http.get<any>(`${this.baseUrl}studentDetails`)
+    return this.http.get<any>(`${this.baseUrl}details`)
   }
 }
