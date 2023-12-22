@@ -10,6 +10,8 @@ import { NgToastModule } from 'ng-angular-popup';
 import { CourseComponent } from './components/course/course.component';
 import { EnrollmentComponent } from './components/enrollment/enrollment.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { CourseEditComponent } from './components/course/course.edit/course-edit/course-edit.component';
+import { CourseDeleteComponent } from './components/course/course.delete/course-delete/course-delete.component';
 
 
 
@@ -20,6 +22,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     CourseComponent,
     EnrollmentComponent,
     NavbarComponent,
+    CourseEditComponent,
+    CourseDeleteComponent,
 
 
 

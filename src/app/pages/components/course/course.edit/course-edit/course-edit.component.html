@@ -1,0 +1,22 @@
+<div class="edit-card">
+    <div class="card">
+        <img src="../../../../assets/course.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <div class="container">
+
+
+                <form [formGroup]="editForm" (ngSubmit)="onEdit()">
+                    <label for="title">Course ID</label>
+                    <input type="text" placeholder="Course ID" formControlName="CourseId">
+
+                    <label for="title">Title</label>
+                    <input type="text" placeholder="Title" formControlName="Title">
+
+                    <label for="credits">Credits</label>
+                    <input type="text" placeholder="Credits" formControlName="Credits">
+                    <button type="submit" class="btn btn-primary">Edit Course</button>
+                </form>
+            </div>
+
+        </div>
+    </div>

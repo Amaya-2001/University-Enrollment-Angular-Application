@@ -1,6 +1,4 @@
 <app-navbar></app-navbar>
-
-
 <div class="course-page">
     <div class="add-card">
         <div class="card" style="width: 18rem;">
@@ -9,28 +7,20 @@
                 <div class="container">
 
 
-                    <form action="/action_page.php">
-                        <label for="fname">Course ID</label>
-                        <input type="text" id="fname" name="firstname" placeholder="Course ID">
+                    <form [formGroup]="addForm" (ngSubmit)="onAdd()">
 
-                        <label for="lname">Title</label>
-                        <input type="text" id="lname" name="lastname" placeholder="Title">
+                        <label for="title">Title</label>
+                        <input type="text" placeholder="Title" formControlName="Title">
 
-                        <label for="email">Credits</label>
-                        <input type="text" id="lname" name="lastname" placeholder="Credits">
-
-
-
-
+                        <label for="credits">Credits</label>
+                        <input type="text" placeholder="Credits" formControlName="Credits">
+                        <button type="submit" class="btn btn-primary">Add Course</button>
                     </form>
                 </div>
-                <button type="button" class="btn btn-primary" (click)="addCourse()">Add Course</button>
+
             </div>
         </div>
     </div>
-
-
-
     <table class="table">
         <thead>
             <tr>
@@ -43,16 +33,43 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td><button class="btn btn-success">Edit</button>
+            <tr *ngFor="let course of courses">
+                <th>{{course.courseId}}</th>
+                <td>{{course.title}}</td>
+                <td>{{course.credits}}</td>
+                <td><button class="btn btn-success" routerLink="edit/{{course.courseId}}">Edit</button>
                 </td>
                 <td><button type="button" class="btn btn-info">Details</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
+                <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal"
+                        (click)="onOpenModal()">Delete</button></td>
             </tr>
-
         </tbody>
     </table>
+</div>
+
+<!-- The Delete Modal -->
+<div class="modal" id="deleteModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h2 class="modal-title">Delete Course</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="onCloseModal()"></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                Are you sure you want to delete this course?
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                    (click)="onCloseModal()">Close</button><span class="ml-5">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                        (click)="onDelete()">Delete</button>
+                </span>
+
+            </div>
+
+        </div>
+    </div>
 </div>
