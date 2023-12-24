@@ -22,4 +22,11 @@ export class CourseService {
   editCourse(courseId: string, courseObj: any) {
     return this.http.put<any>(`${this.baseUrl}edit/${courseId}`, courseObj);
   }
+
+  deleteCourse(courseId: string) {
+    return this.http.delete<any>(`${this.baseUrl}delete/${courseId}`);
+  }
+  detailsCourse(courseId: string) {
+    return this.http.get<any>(`${this.baseUrl}details/${courseId}`);
+  }
 }

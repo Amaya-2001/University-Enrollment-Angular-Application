@@ -40,5 +40,8 @@ export class CourseEditComponent implements OnInit {
       })
     })
   }
+  onBack() {
+    this.router.navigate(['pages/course']);
+  }
 
 } 
