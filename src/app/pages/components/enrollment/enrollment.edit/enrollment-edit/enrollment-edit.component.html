@@ -1,0 +1,31 @@
+<div class="edit-card">
+    <div class="card">
+        <img src="../../../../assets/course.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <div class="container">
+
+
+                <form [formGroup]="editForm" (ngSubmit)="onEdit()">
+                    <label for="enrollmentId">Enrollment ID</label>
+                    <input type="text" id="enrollmentId" name="enrollmentId" placeholder="Enrollment ID"
+                        formControlName="EnrollmentId">
+
+                    <label for="courseId">Course ID</label>
+                    <input type="text" id="courseId" name="courseId" placeholder="Course ID" formControlName="CourseId">
+
+                    <label for="studentId">Student ID</label>
+                    <input type="text" id="studentId" name="studentId" placeholder="Student ID"
+                        formControlName="StudentId">
+
+                    <label for="enrollmentDate">Enrollment Date</label>
+                    <input type="date" id="enrollmentDate" name="enrollmentDate" placeholder="Enrollment Date"
+                        formControlName="EnrollmentDate">
+                    <button type="submit" class="btn btn-primary" (click)="onBack()">Back</button><span
+                        style="margin-left: 20px;">
+                        <button type="submit" class="btn btn-primary">Edit Course</button></span>
+
+                </form>
+            </div>
+
+        </div>
+    </div>

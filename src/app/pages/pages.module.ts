@@ -13,6 +13,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CourseEditComponent } from './components/course/course.edit/course-edit/course-edit.component';
 import { CourseDeleteComponent } from './components/course/course.delete/course-delete/course-delete.component';
 import { StudentEditComponent } from './components/student/student.edit/student.edit.component';
+import { EnrollmentEditComponent } from './components/enrollment/enrollment.edit/enrollment-edit/enrollment-edit.component';
 
 
 
@@ -26,6 +27,7 @@ import { StudentEditComponent } from './components/student/student.edit/student.
     CourseEditComponent,
     CourseDeleteComponent,
     StudentEditComponent,
+    EnrollmentEditComponent,
 
 
 

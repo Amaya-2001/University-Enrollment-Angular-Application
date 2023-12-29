@@ -57,7 +57,7 @@
                 <td>{{enrollment.courseId}}</td>
                 <td>{{enrollment.studentId}}</td>
                 <td>{{enrollment.enrollmentDate | date:'dd MMM, yyyy'}}</td>
-                <td><button class="btn btn-success">Edit</button>
+                <td><button class="btn btn-success" routerLink="edit/{{enrollment.enrollmentId}}">Edit</button>
                 </td>
                 <td><button type="button" class="btn btn-info"
                         (click)="onDetailsModal(enrollment.enrollmentId,enrollment.courseId,enrollment.studentId,enrollment.enrollmentDate)">Details</button>

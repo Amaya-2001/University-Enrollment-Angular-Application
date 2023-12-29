@@ -6,6 +6,7 @@ import { CourseComponent } from './components/course/course.component';
 import { EnrollmentComponent } from './components/enrollment/enrollment.component';
 import { CourseEditComponent } from './components/course/course.edit/course-edit/course-edit.component';
 import { StudentEditComponent } from './components/student/student.edit/student.edit.component';
+import { EnrollmentEditComponent } from './components/enrollment/enrollment.edit/enrollment-edit/enrollment-edit.component';
 
 
 const routes: Routes = [{ path: '', component: PagesComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [{ path: '', component: PagesComponent },
 { path: 'enrollment', component: EnrollmentComponent },
 { path: 'course/edit/:courseId', component: CourseEditComponent },
 { path: 'course/:courseId', component: CourseComponent },
-{ path: 'student/edit/:studentId', component: StudentEditComponent }
+{ path: 'student/edit/:studentId', component: StudentEditComponent },
+{ path: 'enrollment/edit/:enrollmentId', component: EnrollmentEditComponent }
 
 ];
 
