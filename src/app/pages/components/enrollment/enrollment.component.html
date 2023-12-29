@@ -2,27 +2,35 @@
 <h1>Enrollment</h1>
 <div class="add-card">
     <div class="card" style="width: 18rem;">
-        <img src="../../../../assets/course.jpg" class="card-img-top" alt="...">
+        <img src="../../../../assets/enrollment-image.jpg" class="card-img-top" alt="...">
         <div class="card-body">
             <div class="container">
 
 
-                <form action="/action_page.php">
-                    <label for="fname">Course ID</label>
-                    <input type="text" id="fname" name="firstname" placeholder="Course ID">
+                <form [formGroup]="addForm" (ngSubmit)="onAdd()">
+                    <!-- <label for="enrollmentId">Enrollment ID</label>
+                    <input type="text" id="enrollmentId" name="enrollmentId" placeholder="Enrollment ID"
+                        formControlName="EnrollmentId"> -->
 
-                    <label for="lname">Title</label>
-                    <input type="text" id="lname" name="lastname" placeholder="Title">
+                    <label for="courseId">Course ID</label>
+                    <input type="text" id="courseId" name="courseId" placeholder="Course ID" formControlName="CourseId">
 
-                    <label for="email">Credits</label>
-                    <input type="text" id="lname" name="lastname" placeholder="Credits">
+                    <label for="studentId">Student ID</label>
+                    <input type="text" id="studentId" name="studentId" placeholder="Student ID"
+                        formControlName="StudentId">
+
+                    <label for="enrollmentDate">Enrollment Date</label>
+                    <input type="date" id="enrollmentDate" name="enrollmentDate" placeholder="Enrollment Date"
+                        formControlName="EnrollmentDate">
+
+                    <button type="submit" class="btn btn-primary">Add Enrollment</button>
 
 
 
 
                 </form>
             </div>
-            <button type="button" class="btn btn-primary">Add Course</button>
+
         </div>
     </div>
 </div>
@@ -44,16 +52,96 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
+            <tr *ngFor="let enrollment of enrollments">
+                <th>{{enrollment.enrollmentId}}</th>
+                <td>{{enrollment.courseId}}</td>
+                <td>{{enrollment.studentId}}</td>
+                <td>{{enrollment.enrollmentDate | date:'dd MMM, yyyy'}}</td>
                 <td><button class="btn btn-success">Edit</button>
                 </td>
-                <td><button type="button" class="btn btn-info">Details</button></td>
-                <td><button type="button" class="btn btn-danger">Delete</button></td>
+                <td><button type="button" class="btn btn-info"
+                        (click)="onDetailsModal(enrollment.enrollmentId,enrollment.courseId,enrollment.studentId,enrollment.enrollmentDate)">Details</button>
+                </td>
+                <td><button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal"
+                        (click)="onOpenDeleteModal(enrollment.enrollmentId)">Delete</button></td>
             </tr>
 
         </tbody>
     </table>
+</div>
+
+<!-- The Enrollment Details Modal -->
+<div class="modal" id="detailsModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h2 class="modal-title">Enrollment Details</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    (click)="onCloseDetailsModal()"></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Enrollment ID</th>
+                            <th scope="col">Course ID</th>
+                            <th scope="col">Student ID</th>
+                            <th scope="col">Enrollment Date</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>{{EnrollmentId}}</th>
+                            <td>{{EnrollmentCourseID}}</td>
+                            <td>{{EnrollmentStudentID}}</td>
+                            <td>{{EnrollmentDate | date:'dd MMM, yyyy'}}</td>
+
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                    (click)="onCloseDetailsModal()">Close</button><span class="ml-5">
+                    <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                        (click)="onDelete()">Delete</button> -->
+                </span>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- The Delete Modal -->
+<div class="modal" id="deleteModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h2 class="modal-title">Delete Enrollment</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" (click)="onCloseModal()"></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                Delete the "{{ EnrollmentId }}" enrollment successfully!
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                    (click)="onCloseModal()">Close</button><span class="ml-5">
+                    <!-- <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                        (click)="onDelete()">Delete</button> -->
+                </span>
+
+            </div>
+
+        </div>
+    </div>
 </div>
