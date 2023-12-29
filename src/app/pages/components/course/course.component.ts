@@ -91,13 +91,13 @@ export class CourseComponent implements OnInit {
 
   }
 
-  onDetails() {
-    this.service.detailsCourse(this.courseId).subscribe({
-      next: (res => {
-        console.log(res);
-      })
-    })
-  }
+  // onDetails() {
+  //   this.service.detailsCourse(this.courseId).subscribe({
+  //     next: (res => {
+  //       console.log(res);
+  //     })
+  //   })
+  // }
 
   onCloseDetailsModal() {
     const modalDiv = document.getElementById('detailsModal');

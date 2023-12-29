@@ -19,15 +19,15 @@ export class StudentService {
     return this.http.post<any>(`${this.baseUrl}create`, studentObj)
 
   }
-  editStudent(StudentId: string) {
-    return this.http.post<any>(`${this.baseUrl}edit`, StudentId)
+  editStudent(studentId: string, studentObj: any) {
+    return this.http.put<any>(`${this.baseUrl}edit/${studentId}`, studentObj)
   }
 
   deleteStudent(studentId: string) {
     return this.http.post<any>(`${this.baseUrl}delete`, studentId)
   }
 
-  viewStudentDetails() {
-    return this.http.get<any>(`${this.baseUrl}details`)
+  viewStudentDetails(studentId: string) {
+    return this.http.get<any>(`${this.baseUrl}details/${studentId}`)
   }
 }

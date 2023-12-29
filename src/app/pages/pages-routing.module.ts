@@ -5,6 +5,7 @@ import { StudentComponent } from './components/student/student.component';
 import { CourseComponent } from './components/course/course.component';
 import { EnrollmentComponent } from './components/enrollment/enrollment.component';
 import { CourseEditComponent } from './components/course/course.edit/course-edit/course-edit.component';
+import { StudentEditComponent } from './components/student/student.edit/student.edit.component';
 
 
 const routes: Routes = [{ path: '', component: PagesComponent },
@@ -12,7 +13,8 @@ const routes: Routes = [{ path: '', component: PagesComponent },
 { path: 'course', component: CourseComponent },
 { path: 'enrollment', component: EnrollmentComponent },
 { path: 'course/edit/:courseId', component: CourseEditComponent },
-{ path: 'course/:courseId', component: CourseComponent }
+{ path: 'course/:courseId', component: CourseComponent },
+{ path: 'student/edit/:studentId', component: StudentEditComponent }
 
 ];
 

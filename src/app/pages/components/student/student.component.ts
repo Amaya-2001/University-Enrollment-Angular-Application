@@ -16,7 +16,10 @@ import { NgFor, NgIf } from '@angular/common';
 export class StudentComponent implements OnInit {
 
   students: any[] = []
-
+  studentId!: string;
+  studentFname: string = '';
+  studentLname: string = '';
+  studentEmail: string = '';
   constructor(private dialog: MatDialog, private service: StudentService, private fb: FormBuilder, private toast: NgToastService, private router: Router) {
 
   }
@@ -31,24 +34,28 @@ export class StudentComponent implements OnInit {
     });
 
   }
-
-  // studentEditDialog() {
-  //   this.dialog.open(StudentEditDialog);
-  // }
-
   addStudent() {
     //this.router.navigate(['/pages/create']);
     console.log('student dialog opened');
     this.dialog.open(StudentAddDialog);
   }
-  viewDeatils() {
-    this.dialog.open(StudentDetailsDialog);
+  onCloseDetailsModal() {
+    const modalDiv = document.getElementById('detailsModal');
+    if (modalDiv != null) {
+      modalDiv.style.display = 'none';
+    }
+  }
+  viewDeatils(studentId: string, firstName: string, lastName: string, email: string) {
+    this.studentId = studentId;
+    this.studentFname = firstName;
+    this.studentLname = lastName;
+    this.studentEmail = email;
+    const modalDiv = document.getElementById('detailsModal');
+    if (modalDiv != null) {
+      modalDiv.style.display = 'block';
+    }
 
   }
-  // studentDelete() {
-  //   this.dialog.open(StudentDeleteDialog);
-
-  // }
 }
 
 // @Component({
@@ -101,31 +108,35 @@ export class StudentAddDialog implements OnInit {
 }
 
 
-@Component({
-  selector: 'studentDetailsModel.component',
-  templateUrl: 'studentDetailsModel.component.html',
-  styleUrl: './student.component.css',
-  standalone: true,
-  imports: [NgIf, NgFor],
-})
-export class StudentDetailsDialog implements OnInit {
-  studentDetails: any;
+// @Component({
+//   selector: 'studentDetailsModel.component',
+//   templateUrl: 'studentDetailsModel.component.html',
+//   styleUrl: './student.component.css',
+//   standalone: true,
+//   imports: [NgIf, NgFor],
+// })
+// export class StudentDetailsDialog implements OnInit {
+//   studentDetails: any;
 
-  constructor(private dialog: MatDialog, private service: StudentService, private fb: FormBuilder, private toast: NgToastService, private router: Router) {
+//   constructor(private dialog: MatDialog, private service: StudentService, private fb: FormBuilder, private toast: NgToastService, private router: Router) {
 
-  }
-  ngOnInit(): void {
-    this.loadStudentDetails();
-  }
+//   }
+//   ngOnInit(): void {
+//     this.loadStudentDetails();
+//   }
 
-  loadStudentDetails() {
-    this.service.viewStudentDetails().subscribe(data => {
-      this.studentDetails = data;
-      console.log(data);
-    })
-  }
+//   loadStudentDetails() {
+//     this.service.viewStudentDetails().subscribe(data => {
+//       this.studentDetails = data;
+//       console.log(data);
+//     })
+//   }
 
-}
+
+
+
+
+// }
 
 @Component({
   selector: 'studentEditModal.component',

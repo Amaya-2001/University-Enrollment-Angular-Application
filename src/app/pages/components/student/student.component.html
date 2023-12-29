@@ -31,9 +31,13 @@
                     <th>{{student.studentId}}</th>
                     <td>{{student.firstName}}</td>
                     <td>{{student.lastName}}</td>
-                    <td><button class="btn btn-success">Edit</button>
+                    <td>{{student.email}}</td>
+                    <td><button class="btn btn-success"
+                            routerLink="/pages/student/edit/{{student.studentId}}">Edit</button>
                     </td>
-                    <td><button type="button" class="btn btn-info" (click)="viewDeatils()">Details</button></td>
+                    <td><button type="button" class="btn btn-info"
+                            (click)="viewDeatils(student.studentId,student.firstName,student.lastName, student.email)">Details</button>
+                    </td>
                     <td><button type="button" class="btn btn-danger">Delete</button></td>
                 </tr>
 
@@ -41,5 +45,53 @@
             </tbody>
         </table>
 
+    </div>
+</div>
+
+
+<!-- The Student Details Modal -->
+<div class="modal" id="detailsModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h2 class="modal-title">Student Details</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                    (click)="onCloseDetailsModal()"></button>
+            </div>
+            <!-- Modal body -->
+            <div class="modal-body">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Student ID</th>
+                            <th scope="col">First Name</th>
+                            <th scope="col">Last Name</th>
+                            <th scope="col">Email</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>{{studentId}}</th>
+                            <td>{{studentFname}}</td>
+                            <td>{{studentLname}}</td>
+                            <td>{{studentEmail}}</td>
+
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                    (click)="onCloseDetailsModal()">Close</button><span class="ml-5">
+
+                </span>
+
+            </div>
+
+        </div>
     </div>
 </div>
