@@ -15,14 +15,17 @@
         <div class="wrapper">
             <div class="title"><span>Signup</span></div>
             <form [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
+                <small *ngIf="signUpForm.controls['email'].dirty && signUpForm.hasError('required','email')">*Email is required</small>
                 <div class="row">
                     <i class="fas fa-envelope"></i>
                     <input type="text" placeholder="Email" formControlName="email" required>
                 </div>
+                <small *ngIf="signUpForm.controls['username'].dirty && signUpForm.hasError('required','username')">*Username is required</small>
                 <div class="row">
                     <i class="fas fa-user"></i>
                     <input type="text" placeholder="User Name" formControlName="username" required>
                 </div>
+                <small *ngIf="signUpForm.controls['password'].dirty && signUpForm.hasError('required','password')">*Password is required</small>
                 <div class="row">
                     <i class="fas fa-lock"></i>
                     <input type="password" placeholder="Password" formControlName="password" required>
