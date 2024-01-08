@@ -43,6 +43,7 @@ body {
 
 .wrapper form {
     padding: 30px 25px 25px 25px;
+    
 }
 
 .wrapper form .row {
@@ -60,6 +61,7 @@ body {
     border: 1px solid lightgrey;
     font-size: 16px;
     transition: all 0.3s ease;
+    margin-bottom: 5px;
 }
 
 form .row input:focus {
@@ -83,6 +85,7 @@ form .row input::placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
+    
 }
 
 .wrapper form .pass {
@@ -126,4 +129,9 @@ form .button input:hover {
 
 form .signup-link a:hover {
     text-decoration: underline;
+}
+small{
+    color: red;
+   
+   
 }
